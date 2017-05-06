@@ -21,3 +21,6 @@ C:\Users\lab.CLN\Downloads\Library\Library\Library\obj\Debug\Library.pdb
 C:\Users\doğan akdeniz\Source\Repos\local-library-\Library\Library\Library\bin\Debug\Library.exe.config
 C:\Users\doğan akdeniz\Source\Repos\local-library-\Library\Library\Library\obj\Debug\Library.exe
 C:\Users\doğan akdeniz\Source\Repos\local-library-\Library\Library\Library\obj\Debug\Library.pdb
+C:\Users\PQSJ\Desktop\Githubson\local-library-\Library\Library\Library\bin\Debug\Library.exe.config
+C:\Users\PQSJ\Desktop\Githubson\local-library-\Library\Library\Library\obj\Debug\Library.exe
+C:\Users\PQSJ\Desktop\Githubson\local-library-\Library\Library\Library\obj\Debug\Library.pdb

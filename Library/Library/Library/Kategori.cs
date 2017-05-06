@@ -17,7 +17,7 @@ namespace Library
         }
         void SetKategoriAdi()
         {
-            string path = @"..\DB\Library\";
+            string path = @"..\DB\Library\"; //Dogan baba boynumuza dola
             string[] dir = Directory.GetDirectories(path);
             foreach (string item in dir)
             {
