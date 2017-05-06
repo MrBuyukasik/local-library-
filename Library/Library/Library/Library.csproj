@@ -58,6 +58,7 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kategori.cs" />
     <Compile Include="Kitap.cs" />
     <Compile Include="Kitaplik.cs" />
     <Compile Include="Kullanici.cs" />

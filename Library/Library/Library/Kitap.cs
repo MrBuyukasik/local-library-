@@ -13,6 +13,7 @@ namespace Library
         public ArrayList kitapAdi = new ArrayList();
         public ArrayList yazarAdi = new ArrayList();
         public ArrayList kategori = new ArrayList();
+        //adwadwadwadwadwadwadwa
         Kitaplik lib = new Kitaplik();
         public Kitap()
         {
