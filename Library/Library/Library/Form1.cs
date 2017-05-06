@@ -24,15 +24,10 @@ namespace Library
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {           
-            Kitap book = new Kitap();
-            for (int i = 0; i < book.kitapAdi.Count; i++)
-            {
-                dataGridView1.Rows.Add(1);
-                dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[0].Value = book.kitapAdi[i].ToString();
-                dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[1].Value = book.yazarAdi[i].ToString();
-                dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[2].Value = book.kategori[i].ToString();
-            }
+        {
+            Kategori kat = new Kategori();
+            Yazar yaz = new Yazar();
+            Kitap kit = new Kitap();
         }
 
         private void btnKitapEkle_Click(object sender, EventArgs e)
