@@ -1,42 +1,44 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Library
 {
     class Kitap
     {
         public ArrayList kitapAdi = new ArrayList();
-        public ArrayList yazarAdi = new ArrayList();
-        public ArrayList kategori = new ArrayList();
-        //adwadwadwadwadwadwadwa
-        Kitaplik lib = new Kitaplik();
+        public ArrayList yazarNo = new ArrayList();
+        public ArrayList kategoriNo = new ArrayList();
         public Kitap()
         {
-            SetKitapAdi();
+            SET();
         }
-        void SetKitapAdi()
+        void SET()
         {
-            ArrayList dir = new ArrayList();
-            ArrayList dirname = new ArrayList();
-            for (int i = 0; i < lib.kategori.Length; i++)
+            for (int i = 0; i < Program.bookDir.Count; i++)
             {
-                string[] tempdir = Directory.GetFiles(@"..\DB\Library\" + lib.kategori[i] + @"\");
-                foreach (string item in tempdir)
+                // Kitap
+                string temp = File.ReadLines(Program.bookDir[i].ToString()).First();
+                kitapAdi.Add(temp);
+                // Yazar NO
+                string tempYazar = File.ReadLines(Program.bookDir[i].ToString()).Skip(1).Take(1).First();
+                for (int j = 0; j < Yazar.yazarAdi.Count; j++)
                 {
-                    dir.Add(item);
+                    if (tempYazar == Yazar.yazarAdi[j].ToString())
+                    {
+                        yazarNo.Add(j);
+                    }
                 }
-            }
-            for (int i = 0; i < dir.Count; i++)
-            {
-                string[] kitap = File.ReadLines(dir[i].ToString()).Take(2).ToArray(); // ilk satırı oku ve çık
-                kitapAdi.Add(kitap[0].Trim());               
-                yazarAdi.Add(kitap[1].Trim());
-                kategori.Add(Path.GetDirectoryName(dir[i].ToString()).Substring(Path.GetDirectoryName(dir[i].ToString()).LastIndexOf('\\') + 1));
+                // Kategori no
+                string tempPath = Path.GetDirectoryName(Program.bookDir[i].ToString());
+                string tempKategori = tempPath.Substring(tempPath.LastIndexOf('\\') + 1);
+                for (int j = 0; j < Kategori.kategoriAdi.Count; j++)
+                {
+                    if (tempKategori == Kategori.kategoriAdi[j].ToString())
+                    {
+                        kategoriNo.Add(j);
+                    }
+                }
             }
         }
     }
