@@ -1,30 +1,25 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Library
 {
-    class Kitaplik
+    class Kitaplik:Kitap
     {
-        public string[] kategori = Directory.GetDirectories(@"..\DB\Library\");
-        int[] slashIndex;
+        public ArrayList yazarAdi = new ArrayList();
+        public ArrayList KategoriAdi = new ArrayList();
         public Kitaplik()
         {
-            SetKategori();
+            Set();
         }
-        void SetKategori()
+        void Set()
         {
-            slashIndex = new int[kategori.Length];
-            for (int i = 0; i < kategori.Length; i++) // kategori ismini split ediyoruz
+            for (int i = 0; i < kitapAdi.Count; i++)
             {
-                slashIndex[i] = kategori[i].LastIndexOf('\\');
-                kategori[i] = kategori[i].Substring(slashIndex[i] + 1);
+                int tempYazar = Convert.ToInt32(yazarNo[i]);
+                yazarAdi.Add(Yazar.yazarAdi[tempYazar]);
+                int tempKategori = Convert.ToInt32(kategoriNo[i]);
+                KategoriAdi.Add(Kategori.kategoriAdi[tempKategori]);
             }
         }
-        
     }
 }
