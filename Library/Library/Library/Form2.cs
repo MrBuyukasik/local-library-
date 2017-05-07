@@ -14,7 +14,14 @@ namespace Library
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            listBox1.Items.Add(Form3.gonderilecekVeri);
+          if(string.IsNullOrEmpty(Form3.gonderilecekVeri))  // Dosya Null donduruyorsa Herhangi bir ekleme yapmaması durumu
+            {
+
+            }
+            else
+            {
+                listBox1.Items.Add(Form3.gonderilecekVeri);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -51,5 +58,6 @@ namespace Library
         {
             
         }
+       
     }
 }
