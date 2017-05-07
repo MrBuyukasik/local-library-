@@ -91,6 +91,18 @@ namespace Library
         {
 
         }
+
+        private void btnKategoriEkle_Click(object sender, EventArgs e)
+        {
+            Form3 kategoriEkle = new Form3();
+            kategoriEkle.Show();
+            
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
         // Arama - END
     }
 }

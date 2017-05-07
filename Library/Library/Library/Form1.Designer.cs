@@ -77,16 +77,17 @@
             // 
             this.btnKategoriEkle.Location = new System.Drawing.Point(12, 28);
             this.btnKategoriEkle.Name = "btnKategoriEkle";
-            this.btnKategoriEkle.Size = new System.Drawing.Size(75, 23);
+            this.btnKategoriEkle.Size = new System.Drawing.Size(104, 23);
             this.btnKategoriEkle.TabIndex = 0;
             this.btnKategoriEkle.Text = "Kategori Ekle";
             this.btnKategoriEkle.UseVisualStyleBackColor = true;
+            this.btnKategoriEkle.Click += new System.EventHandler(this.btnKategoriEkle_Click);
             // 
             // btnKitapEkle
             // 
             this.btnKitapEkle.Location = new System.Drawing.Point(12, 57);
             this.btnKitapEkle.Name = "btnKitapEkle";
-            this.btnKitapEkle.Size = new System.Drawing.Size(75, 23);
+            this.btnKitapEkle.Size = new System.Drawing.Size(104, 23);
             this.btnKitapEkle.TabIndex = 1;
             this.btnKitapEkle.Text = "Kitap Ekle";
             this.btnKitapEkle.UseVisualStyleBackColor = true;
@@ -96,7 +97,7 @@
             // 
             this.button3.Location = new System.Drawing.Point(12, 86);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(104, 23);
             this.button3.TabIndex = 2;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
@@ -106,7 +107,7 @@
             // 
             this.button4.Location = new System.Drawing.Point(12, 115);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(104, 23);
             this.button4.TabIndex = 3;
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
@@ -135,6 +136,7 @@
             this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.Size = new System.Drawing.Size(504, 317);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // kitapadi
             // 

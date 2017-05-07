@@ -6,6 +6,7 @@ namespace Library
 {
     public partial class Form2 : Form
     {
+        
         public Form2()
         {
             InitializeComponent();
@@ -13,11 +14,13 @@ namespace Library
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            
+            listBox1.Items.Add(Form3.gonderilecekVeri);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+
             if (listBox1.SelectedIndex == -1)
             {
                 MessageBox.Show("Lütfen bir kategori seçiniz.");
@@ -42,6 +45,11 @@ namespace Library
                     }
                 }
             }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
