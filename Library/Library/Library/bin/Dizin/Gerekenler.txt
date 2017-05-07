@@ -1,0 +1,9 @@
+Kitap			Dizin, Kitap Adı, Yazar no, kategori no
+Yazar			Yazar Adı
+Kategori 		Kategori Adı
+Kitaplık:Kitap	Kitap Adı, Kitap Yazarı, Kitap Kategorisi
+--------------------------------------------------------------
+Kullanıcı		Kullanıcı Adı, Parola, Yetki
+Yönetici		Kullanıcı Adı, Parola, Yetki, Yönetici Yaratma
+--------------------------------------------------------------
+

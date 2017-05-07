@@ -21,7 +21,7 @@ namespace Library
             Application.Run(new Form1());
         }
         // Dizin ve Dosya İşleri
-        public static string path=@"..\DB\Library\";
+        public static string path;
         public static string[] dir ;
         public static ArrayList bookDir = new ArrayList();   
         public static void SetDir()

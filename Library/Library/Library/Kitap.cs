@@ -8,9 +8,10 @@ namespace Library
 {
     class Kitap
     {
-        public ArrayList kitapAdi = new ArrayList();
-        public ArrayList yazarNo = new ArrayList();
-        public ArrayList kategoriNo = new ArrayList();
+        public static ArrayList kitapAdi = new ArrayList();
+        public static ArrayList yazarNo = new ArrayList();
+        public static ArrayList kategoriNo = new ArrayList();
+        public static DataGridView x;
         public Kitap()
         {
             SET();
@@ -43,7 +44,7 @@ namespace Library
                 }
             }
         }
-        public void KitapEkle(string kategori)
+        public static void KitapEkle(string kategori)
         {
             OpenFileDialog of = new OpenFileDialog();
             of.InitialDirectory = "C:\\";
@@ -57,9 +58,36 @@ namespace Library
                     string source = of.FileName;
                     string target = @"..\DB\Library\" + kategori + "\\" + fileName;
                     File.Copy(source, target);
-                    Program.SetDir();
-                    Program.SetBookDir();
-                    SET();
+                    string[] temp = File.ReadAllLines(target).Take(2).ToArray();
+                    kitapAdi.Add(temp[0]);
+                    bool flag = true;
+                    foreach (string item in Yazar.yazarAdi)
+                        if (item == temp[1])
+                            flag = false;
+                    if (flag)
+                        Yazar.yazarAdi.Add(temp[1]);
+                    for (int j = 0; j < Yazar.yazarAdi.Count; j++)
+                    {
+                        if (temp[1] == Yazar.yazarAdi[j].ToString())
+                        {
+                            yazarNo.Add(j);
+                        }
+                    }
+                    string tempPath = Path.GetDirectoryName(target);
+                    string tempKategori = tempPath.Substring(tempPath.LastIndexOf('\\') + 1);
+                    for (int j = 0; j < Kategori.kategoriAdi.Count; j++) // KAtegori
+                    {
+                        if (tempKategori == Kategori.kategoriAdi[j].ToString())
+                        {
+                            kategoriNo.Add(j);
+                        }
+                    }
+                    Kitaplik.yazarAdi.Add(Yazar.yazarAdi[Convert.ToInt32(yazarNo[yazarNo.Count - 1])]);
+                    Kitaplik.KategoriAdi.Add(Kategori.kategoriAdi[Convert.ToInt32(kategoriNo[kategoriNo.Count -1])]);
+                    x.Rows.Add(1);
+                    x.Rows[x.Rows.Count - 2].Cells[0].Value = kitapAdi[kitapAdi.Count -1];
+                    x.Rows[x.Rows.Count - 2].Cells[1].Value = Kitaplik.yazarAdi[Kitaplik.yazarAdi.Count - 1];
+                    x.Rows[x.Rows.Count - 2].Cells[2].Value = Kitaplik.KategoriAdi[Kitaplik.KategoriAdi.Count -1];
                 }
                 catch (Exception ex)
                 {

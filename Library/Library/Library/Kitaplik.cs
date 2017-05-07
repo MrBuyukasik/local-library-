@@ -3,21 +3,21 @@ using System.Collections;
 
 namespace Library
 {
-    class Kitaplik:Kitap
+    class Kitaplik
     {
-        public ArrayList yazarAdi = new ArrayList();
-        public ArrayList KategoriAdi = new ArrayList();
+        public static ArrayList yazarAdi = new ArrayList();
+        public static ArrayList KategoriAdi = new ArrayList();
         public Kitaplik()
         {
-            Set();
+            Setyk();
         }
-        public void Set()
+        public static void Setyk()
         {
-            for (int i = 0; i < kitapAdi.Count; i++)
+            for (int i = 0; i < Kitap.kitapAdi.Count; i++)
             {
-                int tempYazar = Convert.ToInt32(yazarNo[i]);
+                int tempYazar = Convert.ToInt32(Kitap.yazarNo[i]);
                 yazarAdi.Add(Yazar.yazarAdi[tempYazar]);
-                int tempKategori = Convert.ToInt32(kategoriNo[i]);
+                int tempKategori = Convert.ToInt32(Kitap.kategoriNo[i]);
                 KategoriAdi.Add(Kategori.kategoriAdi[tempKategori]);
             }
         }

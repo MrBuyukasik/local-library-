@@ -20,7 +20,6 @@ namespace Library
             kitp = new Kitaplik();
             Yenile();
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             
@@ -34,17 +33,18 @@ namespace Library
         private void btnKitapEkle_Click(object sender, EventArgs e)
         {
             Form2 frm = new Form2();
+            Kitap.x = dataGridView1;       
             frm.Show();
         }
         public void Yenile()
         {
             dataGridView1.Rows.Clear();
-            for (int i = 0; i < kit.kitapAdi.Count; i++)
+            for (int i = 0; i < Kitap.kitapAdi.Count; i++)
             {
                 dataGridView1.Rows.Add(1);
-                dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[0].Value = kitp.kitapAdi[i];
-                dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[1].Value = kitp.yazarAdi[i];
-                dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[2].Value = kitp.KategoriAdi[i];
+                dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[0].Value = Kitap.kitapAdi[i];
+                dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[1].Value = Kitaplik.yazarAdi[i];
+                dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[2].Value = Kitaplik.KategoriAdi[i];
             }
         }
         // Arama - START
@@ -100,8 +100,7 @@ namespace Library
         private void btnKategoriEkle_Click(object sender, EventArgs e)
         {
             Form3 kategoriEkle = new Form3();
-            kategoriEkle.Show();
-            
+            kategoriEkle.Show();     
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
