@@ -24,20 +24,22 @@ namespace Library
             if (ad == string.Empty)      //İlgili dizine eklenen dosyayı oluşturma
             {
                 MessageBox.Show("Lütfen boş bırakmayınız.");
-
             }
             else
             {
-
                 try
                 {
                     Directory.CreateDirectory(@"..\DB\Library\" + ad);
+                    kategoriAdi.Add(ad);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString(), "Bir Hatayla Karşılaşıldı.", MessageBoxButtons.OK);
                 }
-                MessageBox.Show("Kategori Başarıyla Eklendi");
+                finally
+                {
+                    MessageBox.Show("Kategori Başarıyla Eklendi");
+                }
             }
         }
     }
