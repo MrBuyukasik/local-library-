@@ -14,6 +14,7 @@ namespace Library
         [STAThread]        
         static void Main()
         {
+            SetDir();
             SetBookDir();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -21,9 +22,14 @@ namespace Library
         }
         // Dizin ve Dosya İşleri
         public static string path=@"..\DB\Library\";
-        public static string[] dir = Directory.GetDirectories(Program.path);
-        public static ArrayList bookDir = new ArrayList();    
-        static void SetBookDir()
+        public static string[] dir ;
+        public static ArrayList bookDir = new ArrayList();   
+        public static void SetDir()
+        {
+            path = @"..\DB\Library\";
+            dir = Directory.GetDirectories(Program.path);
+        } 
+        public static void SetBookDir()
         {
             for (int i = 0; i < Program.dir.Length; i++)
             {

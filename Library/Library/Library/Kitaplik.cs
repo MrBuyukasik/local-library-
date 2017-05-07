@@ -11,7 +11,7 @@ namespace Library
         {
             Set();
         }
-        void Set()
+        public void Set()
         {
             for (int i = 0; i < kitapAdi.Count; i++)
             {

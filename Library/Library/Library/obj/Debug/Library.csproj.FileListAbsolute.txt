@@ -39,3 +39,4 @@ C:\Users\PQSJ\Desktop\Githubson\local-library-\Library\Library\Library\obj\Debug
 C:\Users\PQSJ\Desktop\Githubson\local-library-\Library\Library\Library\obj\Debug\Library.exe
 C:\Users\PQSJ\Desktop\Githubson\local-library-\Library\Library\Library\obj\Debug\Library.pdb
 C:\Users\PQSJ\Desktop\Githubson\local-library-\Library\Library\Library\obj\Debug\Library.Form3.resources
+C:\Users\doğan akdeniz\Source\Repos\local-library-\Library\Library\Library\obj\Debug\Library.Form3.resources

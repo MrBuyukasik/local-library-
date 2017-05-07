@@ -18,6 +18,7 @@ namespace Library
             yaz = new Yazar();
             kit = new Kitap();
             kitp = new Kitaplik();
+            Yenile();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -27,6 +28,17 @@ namespace Library
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnKitapEkle_Click(object sender, EventArgs e)
+        {
+            Form2 frm = new Form2();
+            frm.Show();
+        }
+        public void Yenile()
+        {
+            dataGridView1.Rows.Clear();
             for (int i = 0; i < kit.kitapAdi.Count; i++)
             {
                 dataGridView1.Rows.Add(1);
@@ -35,13 +47,6 @@ namespace Library
                 dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[2].Value = kitp.KategoriAdi[i];
             }
         }
-
-        private void btnKitapEkle_Click(object sender, EventArgs e)
-        {
-            Form2 frm = new Form2();
-            frm.Show();
-        }
-
         // Arama - START
         private void rb_CheckedChanged(object sender, EventArgs e)
         {
@@ -102,6 +107,11 @@ namespace Library
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Yenile();
         }
         // Arama - END
     }
