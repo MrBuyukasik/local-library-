@@ -167,9 +167,9 @@
             this.groupBox1.Controls.Add(this.rbKitap);
             this.groupBox1.Controls.Add(this.rbYazar);
             this.groupBox1.Controls.Add(this.rbKategori);
-            this.groupBox1.Location = new System.Drawing.Point(164, 355);
+            this.groupBox1.Location = new System.Drawing.Point(62, 384);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(507, 118);
+            this.groupBox1.Size = new System.Drawing.Size(606, 273);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Arama Yap";
@@ -179,7 +179,7 @@
             this.pnlKitaplik.Controls.Add(this.btnKitaplik);
             this.pnlKitaplik.Controls.Add(this.label7);
             this.pnlKitaplik.Controls.Add(this.textBox7);
-            this.pnlKitaplik.Location = new System.Drawing.Point(195, 20);
+            this.pnlKitaplik.Location = new System.Drawing.Point(209, 19);
             this.pnlKitaplik.Name = "pnlKitaplik";
             this.pnlKitaplik.Size = new System.Drawing.Size(200, 87);
             this.pnlKitaplik.TabIndex = 7;
@@ -209,6 +209,7 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(100, 20);
             this.textBox7.TabIndex = 9;
+            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // pnlKitap
             // 

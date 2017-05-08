@@ -12,6 +12,8 @@ namespace Library
         Yazar yaz;
         Kitap kit;
         Kitaplik kitp;
+        private object bindingSource;
+
         public Form1()
         {
             InitializeComponent();
@@ -42,6 +44,7 @@ namespace Library
             dataGridView1.Rows.Clear();
             for (int i = 0; i < Kitap.kitapAdi.Count; i++)
             {
+
                 dataGridView1.Rows.Add(1);
                 dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[0].Value = Kitap.kitapAdi[i];
                 dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[1].Value = Kitaplik.yazarAdi[i];
@@ -78,10 +81,45 @@ namespace Library
             }
         }
 
+        
         private void btnKitaplik_Click(object sender, EventArgs e)
         {
+         if(rbKitaplik.Checked)
+            {
 
+          
+            string searchValue = textBox7.Text;
+          
+            try
+            { 
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                        if (dataGridView1.Rows[i].Cells[2].Value.ToString().Equals(searchValue))
+                        {
+                      
+                            for (int j = 0; i<dataGridView1.Rows.Count;i++ )
+                            {
+                                if(dataGridView1.Rows[j].Cells[2].Value.ToString() != searchValue)
+                                {
+                                    dataGridView1.Rows.Remove(dataGridView1.Rows[j]);
+                                }
+                            }
+                       }
+
+               }
+               
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+           }
+         
+                
+        
+            
         }
+
 
         private void btnKategoriler_Click(object sender, EventArgs e)
         {
@@ -90,7 +128,28 @@ namespace Library
 
         private void btnYazar_Click(object sender, EventArgs e)
         {
+            string searchValue = textBox2.Text;
 
+
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                if ((String)dataGridView1.Rows[i].Cells[1].Value != String.Empty)
+                {
+                    if (dataGridView1.Rows[i].Cells[1].Value.ToString() != searchValue)
+                    {
+
+                        dataGridView1.Rows.Remove(dataGridView1.Rows[i]);
+                        if (i != -1)
+                        {
+                            i--;
+                        }
+                    }
+
+                }
+            }
+
+            
+           
         }
 
         private void btnKitap_Click(object sender, EventArgs e)
@@ -143,6 +202,11 @@ namespace Library
                 throw;
             }
             
+        }
+        
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+          
         }
         // Arama - END
     }
