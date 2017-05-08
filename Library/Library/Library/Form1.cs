@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -112,8 +113,8 @@ namespace Library
         {
             Yenile();
         }
-        
 
+        
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -124,19 +125,24 @@ namespace Library
                 int currentMouseOverRow = dataGridView1.HitTest(e.X, e.Y).RowIndex;
                 dataGridView1.ClearSelection();
                 dataGridView1.Rows[currentMouseOverRow].Selected = true;
+                dataGridView1.CurrentCell = dataGridView1.Rows[currentMouseOverRow].Cells[0]; // şu kod
 
                 m.Show(dataGridView1, new Point(e.X, e.Y));
             }
         }
         private void sil_click(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow item in dataGridView1.Rows)
+        {          
+            try
             {
-                if (item.Selected == true)
-                {
-                    dataGridView1.Rows.Remove(item);
-                }
+                File.Delete(Program.path+dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[2].Value+'\\'+ dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value+".txt");
+                dataGridView1.Rows.RemoveAt(dataGridView1.CurrentCell.RowIndex);
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
         // Arama - END
     }
