@@ -112,6 +112,32 @@ namespace Library
         {
             Yenile();
         }
+        
+
+        private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                ContextMenu m = new ContextMenu();
+                m.MenuItems.Add(new MenuItem("Sil", new EventHandler(sil_click)));
+
+                int currentMouseOverRow = dataGridView1.HitTest(e.X, e.Y).RowIndex;
+                dataGridView1.ClearSelection();
+                dataGridView1.Rows[currentMouseOverRow].Selected = true;
+
+                m.Show(dataGridView1, new Point(e.X, e.Y));
+            }
+        }
+        private void sil_click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow item in dataGridView1.Rows)
+            {
+                if (item.Selected == true)
+                {
+                    dataGridView1.Rows.Remove(item);
+                }
+            }
+        }
         // Arama - END
     }
 }
