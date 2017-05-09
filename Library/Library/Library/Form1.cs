@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -19,7 +20,13 @@ namespace Library
             yaz = new Yazar();
             kit = new Kitap();
             kitp = new Kitaplik();
-            Yenile();
+            for (int i = 0; i < kit.kitapAdi.Count; i++)
+            {
+                dataGridView1.Rows.Add(1);
+                dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[0].Value = kit.kitapAdi[i];
+                dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[1].Value = kitp.yazarAdi[i];
+                dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[2].Value = kitp.KategoriAdi[i];
+            }
         }
         private void button3_Click(object sender, EventArgs e)
         {
@@ -40,12 +47,12 @@ namespace Library
         public void Yenile()
         {
             dataGridView1.Rows.Clear();
-            for (int i = 0; i < Kitap.kitapAdi.Count; i++)
+            for (int i = 0; i < kit.kitapAdi.Count; i++)
             {
                 dataGridView1.Rows.Add(1);
-                dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[0].Value = Kitap.kitapAdi[i];
-                dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[1].Value = Kitaplik.yazarAdi[i];
-                dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[2].Value = Kitaplik.KategoriAdi[i];
+                dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[0].Value = kit.kitapAdi[i];
+                dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[1].Value = kitp.yazarAdi[i];
+                dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[2].Value = kitp.KategoriAdi[i];
             }
         }
         // Arama - START
@@ -85,7 +92,34 @@ namespace Library
 
         private void btnKategoriler_Click(object sender, EventArgs e)
         {
-            
+            string[] tempKat = textBox4.Text.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+            ArrayList tempi = new ArrayList();
+            for (int i = 0; i < tempKat.Length; i++)
+                for (int j = 0; j < dataGridView1.Rows.Count - 1; j++)
+                    if (i == 0)
+                    {
+                        if (dataGridView1.Rows[j].Cells[2].Value.ToString() != tempKat[i].Trim())
+                        {
+                            tempi.Add(dataGridView1.Rows[j].Index);
+                        }
+                    }
+                    else
+                    {
+                        if (dataGridView1.Rows[j].Cells[2].Value.ToString() == tempKat[i].Trim())
+                        {
+                            for (int k = 0; k < tempi.Count; k++)
+                            {
+                                if (Convert.ToInt32(tempi[k]) != dataGridView1.Rows[j].Index)
+                                {
+                                    tempi.Remove(dataGridView1.Rows[j].Index);
+                                }
+                            }
+                        }
+                    }
+            for (int i = 0; i < tempi.Count; i++)
+            {
+                dataGridView1.Rows.RemoveAt(Convert.ToInt32(tempi[i]) - i);
+            }
         }
 
         private void btnYazar_Click(object sender, EventArgs e)
@@ -135,14 +169,21 @@ namespace Library
             try
             {
                 File.Delete(Program.path+dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[2].Value+'\\'+ dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value+".txt");
+                int index = kit.kitapAdi.IndexOf(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value);
+                kit.kategoriNo.RemoveAt(index);
+                kit.yazarNo.RemoveAt(index);
+                kitp.kitapAdi.RemoveAt(index);
+                kitp.kategoriNo.RemoveAt(index);
+                kitp.yazarNo.RemoveAt(index);
+                kitp.KategoriAdi.RemoveAt(index);
+                kitp.yazarAdi.RemoveAt(index);
+                kit.kitapAdi.Remove(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value);
                 dataGridView1.Rows.RemoveAt(dataGridView1.CurrentCell.RowIndex);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
-            }
-            
+                MessageBox.Show(ex.ToString(),"Bir Hatayla Karşılaşıldı!!!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }            
         }
         // Arama - END
     }

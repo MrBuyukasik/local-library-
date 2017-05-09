@@ -8,15 +8,16 @@ namespace Library
 {
     class Kitap
     {
-        public static ArrayList kitapAdi = new ArrayList();
-        public static ArrayList yazarNo = new ArrayList();
-        public static ArrayList kategoriNo = new ArrayList();
+        public ArrayList kitapAdi = new ArrayList();
+        public ArrayList yazarNo = new ArrayList();
+        public ArrayList kategoriNo = new ArrayList();
         public static DataGridView x;
+        Yazar yaz = new Yazar();
         public Kitap()
         {
-            SET();
+            Set();
         }
-        public void SET()
+        public void Set()
         {
             for (int i = 0; i < Program.bookDir.Count; i++)
             {
@@ -25,9 +26,9 @@ namespace Library
                 kitapAdi.Add(temp);
                 // Yazar NO
                 string tempYazar = File.ReadLines(Program.bookDir[i].ToString()).Skip(1).Take(1).First();
-                for (int j = 0; j < Yazar.yazarAdi.Count; j++)
+                for (int j = 0; j < yaz.yazarAdi.Count; j++)
                 {
-                    if (tempYazar == Yazar.yazarAdi[j].ToString())
+                    if (tempYazar == yaz.yazarAdi[j].ToString())
                     {
                         yazarNo.Add(j);
                     }
@@ -44,7 +45,7 @@ namespace Library
                 }
             }
         }
-        public static void KitapEkle(string kategori)
+        public void KitapEkle(string kategori)
         {
             OpenFileDialog of = new OpenFileDialog();
             of.InitialDirectory = "C:\\";
@@ -61,14 +62,14 @@ namespace Library
                     string[] temp = File.ReadAllLines(target).Take(2).ToArray();
                     kitapAdi.Add(temp[0]);
                     bool flag = true;
-                    foreach (string item in Yazar.yazarAdi)
+                    foreach (string item in yaz.yazarAdi)
                         if (item == temp[1])
                             flag = false;
                     if (flag)
-                        Yazar.yazarAdi.Add(temp[1]);
-                    for (int j = 0; j < Yazar.yazarAdi.Count; j++)
+                        yaz.yazarAdi.Add(temp[1]);
+                    for (int j = 0; j < yaz.yazarAdi.Count; j++)
                     {
-                        if (temp[1] == Yazar.yazarAdi[j].ToString())
+                        if (temp[1] == yaz.yazarAdi[j].ToString())
                         {
                             yazarNo.Add(j);
                         }
@@ -82,12 +83,13 @@ namespace Library
                             kategoriNo.Add(j);
                         }
                     }
-                    Kitaplik.yazarAdi.Add(Yazar.yazarAdi[Convert.ToInt32(yazarNo[yazarNo.Count - 1])]);
-                    Kitaplik.KategoriAdi.Add(Kategori.kategoriAdi[Convert.ToInt32(kategoriNo[kategoriNo.Count -1])]);
+                    Kitaplik k = new Kitaplik();
+                    k.yazarAdi.Add(yaz.yazarAdi[Convert.ToInt32(yazarNo[yazarNo.Count - 1])]);
+                    k.KategoriAdi.Add(Kategori.kategoriAdi[Convert.ToInt32(kategoriNo[kategoriNo.Count -1])]);
                     x.Rows.Add(1);
                     x.Rows[x.Rows.Count - 2].Cells[0].Value = kitapAdi[kitapAdi.Count -1];
-                    x.Rows[x.Rows.Count - 2].Cells[1].Value = Kitaplik.yazarAdi[Kitaplik.yazarAdi.Count - 1];
-                    x.Rows[x.Rows.Count - 2].Cells[2].Value = Kitaplik.KategoriAdi[Kitaplik.KategoriAdi.Count -1];
+                    x.Rows[x.Rows.Count - 2].Cells[1].Value = k.yazarAdi[k.yazarAdi.Count - 1];
+                    x.Rows[x.Rows.Count - 2].Cells[2].Value = k.KategoriAdi[k.KategoriAdi.Count -1];
                 }
                 catch (Exception ex)
                 {

@@ -21,10 +21,10 @@ namespace Library
                 MessageBox.Show("Lütfen bir kategori seçiniz.");
             }else
             {
-                Kitap.KitapEkle(listBox1.SelectedItem.ToString());
+               Kitap k = new Kitap();
+               k.KitapEkle(listBox1.SelectedItem.ToString());
             }
             Close();                   
         }
-       
     }
 }

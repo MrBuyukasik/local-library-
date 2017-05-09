@@ -8,7 +8,7 @@ namespace Library
 {
     class Yazar
     {
-        public static ArrayList yazarAdi = new ArrayList();
+        public ArrayList yazarAdi = new ArrayList();
         public Yazar()
         {
             SetYazarAdi();

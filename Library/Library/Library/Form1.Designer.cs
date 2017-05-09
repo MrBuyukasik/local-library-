@@ -56,8 +56,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.pnlKategori = new System.Windows.Forms.Panel();
             this.btnKategoriler = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.rbKitaplik = new System.Windows.Forms.RadioButton();
@@ -169,7 +167,7 @@
             this.groupBox1.Controls.Add(this.rbKategori);
             this.groupBox1.Location = new System.Drawing.Point(164, 355);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(507, 118);
+            this.groupBox1.Size = new System.Drawing.Size(507, 309);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Arama Yap";
@@ -217,6 +215,7 @@
             this.pnlKitap.Controls.Add(this.textBox5);
             this.pnlKitap.Controls.Add(this.label6);
             this.pnlKitap.Controls.Add(this.textBox6);
+            this.pnlKitap.Enabled = false;
             this.pnlKitap.Location = new System.Drawing.Point(213, 225);
             this.pnlKitap.Name = "pnlKitap";
             this.pnlKitap.Size = new System.Drawing.Size(201, 87);
@@ -271,6 +270,7 @@
             this.pnlYazar.Controls.Add(this.textBox3);
             this.pnlYazar.Controls.Add(this.label1);
             this.pnlYazar.Controls.Add(this.textBox2);
+            this.pnlYazar.Enabled = false;
             this.pnlYazar.Location = new System.Drawing.Point(213, 133);
             this.pnlYazar.Name = "pnlYazar";
             this.pnlYazar.Size = new System.Drawing.Size(201, 87);
@@ -321,40 +321,23 @@
             // pnlKategori
             // 
             this.pnlKategori.Controls.Add(this.btnKategoriler);
-            this.pnlKategori.Controls.Add(this.label3);
-            this.pnlKategori.Controls.Add(this.textBox1);
             this.pnlKategori.Controls.Add(this.label4);
             this.pnlKategori.Controls.Add(this.textBox4);
+            this.pnlKategori.Enabled = false;
             this.pnlKategori.Location = new System.Drawing.Point(7, 132);
             this.pnlKategori.Name = "pnlKategori";
-            this.pnlKategori.Size = new System.Drawing.Size(200, 87);
+            this.pnlKategori.Size = new System.Drawing.Size(200, 63);
             this.pnlKategori.TabIndex = 4;
             // 
             // btnKategoriler
             // 
-            this.btnKategoriler.Location = new System.Drawing.Point(96, 58);
+            this.btnKategoriler.Location = new System.Drawing.Point(96, 32);
             this.btnKategoriler.Name = "btnKategoriler";
             this.btnKategoriler.Size = new System.Drawing.Size(100, 23);
             this.btnKategoriler.TabIndex = 9;
             this.btnKategoriler.Text = "Ara";
             this.btnKategoriler.UseVisualStyleBackColor = true;
             this.btnKategoriler.Click += new System.EventHandler(this.btnKategoriler_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 35);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Aranacak Kelime";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(96, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 7;
             // 
             // label4
             // 
@@ -478,8 +461,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Panel pnlKategori;
         private System.Windows.Forms.Button btnKategoriler;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.RadioButton rbKitaplik;
