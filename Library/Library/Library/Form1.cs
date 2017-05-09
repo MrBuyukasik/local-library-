@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -13,7 +14,6 @@ namespace Library
         Yazar yaz;
         Kitap kit;
         Kitaplik kitp;
-        private object bindingSource;
 
         public Form1()
         {
@@ -91,40 +91,22 @@ namespace Library
         
         private void btnKitaplik_Click(object sender, EventArgs e)
         {
-         if(rbKitaplik.Checked)
+            string search = textBox7.Text;
+            List<int> indis = new List<int>();
+            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
             {
-
-          
-            string searchValue = textBox7.Text;
-          
-            try
-            { 
-                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                bool flag = false;
+                for (int j = 0; j < dataGridView1.ColumnCount; j++)
                 {
-                        if (dataGridView1.Rows[i].Cells[2].Value.ToString().Equals(searchValue))
-                        {
-                      
-                            for (int j = 0; i<dataGridView1.Rows.Count;i++ )
-                            {
-                                if(dataGridView1.Rows[j].Cells[2].Value.ToString() != searchValue)
-                                {
-                                    dataGridView1.Rows.Remove(dataGridView1.Rows[j]);
-                                }
-                            }
-                       }
-
-               }
-               
+                    if (dataGridView1.Rows[i].Cells[j].Value.ToString().Contains(search))
+                        flag = true;
+                }
+                if (!flag)
+                {
+                    dataGridView1.Rows.Remove(dataGridView1.Rows[i]);
+                    i--;
+                }
             }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-           }
-         
-                
-        
-            
         }
 
 
@@ -163,9 +145,7 @@ namespace Library
         private void btnYazar_Click(object sender, EventArgs e)
         {
             string searchValue = textBox2.Text;
-
-
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
             {
                 if ((String)dataGridView1.Rows[i].Cells[1].Value != String.Empty)
                 {
@@ -180,15 +160,24 @@ namespace Library
                     }
 
                 }
-            }
-
-            
-           
+            }           
         }
 
         private void btnKitap_Click(object sender, EventArgs e)
         {
-
+            string search = textBox6.Text;
+            List<int> indis = new List<int>();
+            for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
+            {
+                if (dataGridView1.Rows[i].Cells[0].Value.ToString() != search)
+                {
+                    indis.Add(dataGridView1.Rows[i].Index);
+                }
+            }
+            for (int i = 0; i < indis.Count; i++)
+            {
+                dataGridView1.Rows.RemoveAt(indis[i] - i);
+            }
         }
 
         private void btnKategoriEkle_Click(object sender, EventArgs e)
@@ -249,6 +238,7 @@ namespace Library
         {
           
         }
+        
         // Arama - END
     }
 }

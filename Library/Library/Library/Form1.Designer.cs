@@ -44,14 +44,10 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.pnlKitap = new System.Windows.Forms.Panel();
             this.btnKitap = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.pnlYazar = new System.Windows.Forms.Panel();
             this.btnYazar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.pnlKategori = new System.Windows.Forms.Panel();
@@ -211,41 +207,23 @@
             // pnlKitap
             // 
             this.pnlKitap.Controls.Add(this.btnKitap);
-            this.pnlKitap.Controls.Add(this.label5);
-            this.pnlKitap.Controls.Add(this.textBox5);
             this.pnlKitap.Controls.Add(this.label6);
             this.pnlKitap.Controls.Add(this.textBox6);
             this.pnlKitap.Enabled = false;
             this.pnlKitap.Location = new System.Drawing.Point(213, 225);
             this.pnlKitap.Name = "pnlKitap";
-            this.pnlKitap.Size = new System.Drawing.Size(201, 87);
+            this.pnlKitap.Size = new System.Drawing.Size(201, 66);
             this.pnlKitap.TabIndex = 6;
             // 
             // btnKitap
             // 
-            this.btnKitap.Location = new System.Drawing.Point(96, 58);
+            this.btnKitap.Location = new System.Drawing.Point(96, 32);
             this.btnKitap.Name = "btnKitap";
             this.btnKitap.Size = new System.Drawing.Size(100, 23);
             this.btnKitap.TabIndex = 9;
             this.btnKitap.Text = "Ara";
             this.btnKitap.UseVisualStyleBackColor = true;
             this.btnKitap.Click += new System.EventHandler(this.btnKitap_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 35);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Aranacak Kelime";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(96, 32);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 7;
             // 
             // label6
             // 
@@ -266,8 +244,6 @@
             // pnlYazar
             // 
             this.pnlYazar.Controls.Add(this.btnYazar);
-            this.pnlYazar.Controls.Add(this.label2);
-            this.pnlYazar.Controls.Add(this.textBox3);
             this.pnlYazar.Controls.Add(this.label1);
             this.pnlYazar.Controls.Add(this.textBox2);
             this.pnlYazar.Enabled = false;
@@ -278,29 +254,13 @@
             // 
             // btnYazar
             // 
-            this.btnYazar.Location = new System.Drawing.Point(96, 58);
+            this.btnYazar.Location = new System.Drawing.Point(96, 31);
             this.btnYazar.Name = "btnYazar";
             this.btnYazar.Size = new System.Drawing.Size(100, 23);
             this.btnYazar.TabIndex = 4;
             this.btnYazar.Text = "Ara";
             this.btnYazar.UseVisualStyleBackColor = true;
             this.btnYazar.Click += new System.EventHandler(this.btnYazar_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Aranacak Kelime";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(96, 32);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 2;
             // 
             // label1
             // 
@@ -449,14 +409,10 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Panel pnlKitap;
         private System.Windows.Forms.Button btnKitap;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Panel pnlYazar;
         private System.Windows.Forms.Button btnYazar;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Panel pnlKategori;
