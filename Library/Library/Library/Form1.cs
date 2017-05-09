@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -185,11 +186,7 @@ namespace Library
             Form3 kategoriEkle = new Form3();
             kategoriEkle.Show();     
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -238,7 +235,21 @@ namespace Library
         {
           
         }
-        
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = dataGridView1.CurrentCell.RowIndex;
+            try
+            {
+                Process.Start("notepad.exe",Program.path + dataGridView1.Rows[index].Cells[2].Value + "\\" + dataGridView1.Rows[index].Cells[0].Value + ".txt");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(),"HATA",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            
+        }
+
         // Arama - END
     }
 }
