@@ -31,21 +31,23 @@ namespace Library
                 dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[2].Value = kitp.KategoriAdi[i];
             }
         }
-        private void button3_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-        }
 
         private void btnKitapEkle_Click(object sender, EventArgs e)
         {
             Form2 frm = new Form2();
             Kitap.x = dataGridView1;       
             frm.Show();
+        }
+
+        private void btnKategoriEkle_Click(object sender, EventArgs e)
+        {
+            Form3 kategoriEkle = new Form3();
+            kategoriEkle.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Yenile();
         }
         public void Yenile()
         {
@@ -59,6 +61,7 @@ namespace Library
                 dataGridView1.Rows[dataGridView1.Rows.Count - 2].Cells[2].Value = kitp.KategoriAdi[i];
             }
         }
+
         // Arama - START
         private void rb_CheckedChanged(object sender, EventArgs e)
         {
@@ -152,7 +155,6 @@ namespace Library
                 {
                     if (dataGridView1.Rows[i].Cells[1].Value.ToString() != searchValue)
                     {
-
                         dataGridView1.Rows.Remove(dataGridView1.Rows[i]);
                         if (i != -1)
                         {
@@ -180,20 +182,8 @@ namespace Library
                 dataGridView1.Rows.RemoveAt(indis[i] - i);
             }
         }
-
-        private void btnKategoriEkle_Click(object sender, EventArgs e)
-        {
-            Form3 kategoriEkle = new Form3();
-            kategoriEkle.Show();     
-        }
-        
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Yenile();
-        }
-
-        
+        // Arama - END
+      
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -209,12 +199,14 @@ namespace Library
                 m.Show(dataGridView1, new Point(e.X, e.Y));
             }
         }
+
         private void sil_click(object sender, EventArgs e)
         {          
             try
             {
                 File.Delete(Program.path+dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[2].Value+'\\'+ dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value+".txt");
                 int index = kit.kitapAdi.IndexOf(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value);
+                Program.bookDir.Remove(Program.path + dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[2].Value.ToString()+ "\\" + dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString() + ".txt");
                 kit.kategoriNo.RemoveAt(index);
                 kit.yazarNo.RemoveAt(index);
                 kitp.kitapAdi.RemoveAt(index);
@@ -230,11 +222,6 @@ namespace Library
                 MessageBox.Show(ex.ToString(),"Bir Hatayla Karşılaşıldı!!!",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }            
         }
-        
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-          
-        }
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -249,7 +236,5 @@ namespace Library
             }
             
         }
-
-        // Arama - END
     }
 }

@@ -13,7 +13,7 @@ namespace Library
         {
             SetYazarAdi();
         }
-        void SetYazarAdi()
+        public void SetYazarAdi()
         {
             for (int i = 0; i < Program.bookDir.Count; i++)
             {

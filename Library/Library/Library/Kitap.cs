@@ -84,6 +84,7 @@ namespace Library
                         }
                     }
                     Kitaplik k = new Kitaplik();
+                    Program.bookDir.Add(target);
                     k.yazarAdi.Add(yaz.yazarAdi[Convert.ToInt32(yazarNo[yazarNo.Count - 1])]);
                     k.KategoriAdi.Add(Kategori.kategoriAdi[Convert.ToInt32(kategoriNo[kategoriNo.Count -1])]);
                     x.Rows.Add(1);
