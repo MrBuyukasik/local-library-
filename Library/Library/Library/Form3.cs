@@ -15,7 +15,7 @@ namespace Library
         public static string gonderilecekVeri;
         public Form3()
         {
-            InitializeComponent();
+            InitializeComponent(); //Deneme
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
